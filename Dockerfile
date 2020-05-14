@@ -29,8 +29,8 @@ RUN apt-get update -y && \
         /tmp/v${VERSION}.zip \
         /tmp/drawio-${VERSION}
     
-COPY PreConfig.js PostConfig.js $CATALINA_HOME/webapps/draw/js/
-
+ADD /PreConfig.js  $CATALINA_HOME/webapps/draw/js/
+ADD /PostConfig.js $CATALINA_HOME/webapps/draw/js/
 # Update server.xml to set Draw.io webapp to root
 RUN cd $CATALINA_HOME && \
     xmlstarlet ed \
